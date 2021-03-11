@@ -1,15 +1,21 @@
-pipeline {
-    agent none
-    stages {
-        stage('Build') {
-            agent {
-                docker {
-                    image 'python:2-alpine'
-                }
+pipeline{
+    agent any
+
+    stages{
+        stage('Compile stage'){
+            steps{
+                bat 'python Alphabet .py'
             }
-            steps {
-                sh 'python -m py_compile sources/Alphabet.py'
-                stash(name: 'compiled-results', includes: 'sources/*.py*')
+
+        }
+        stage('Testing Stage'){
+              steps{
+                bat 'python test_Alphabet.py'
+            }
+        }
+        stage('Deployment Stage'){
+              steps{
+               echo 'successfully deployed'
             }
         }
     }
