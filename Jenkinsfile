@@ -4,7 +4,7 @@ pipeline{
     stages{
         stage('Compile stage'){
             steps{
-                bat 'python Alphabet .py'
+                bat 'python Alphabet.py'
             }
 
         }
