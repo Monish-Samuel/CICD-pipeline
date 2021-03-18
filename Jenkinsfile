@@ -13,7 +13,7 @@ pipeline{
                 bat 'python test_Alphabet.py'
             }
         }
-        stage('Deployment Stage'){
+        stage('Output Display'){
               steps{
                bat 'python output.py'
             }
