@@ -2,7 +2,7 @@ pipeline{
     agent any
 
     stages{
-        stage('Compile stage'){
+        stage('Compilation stage'){
             steps{
                 bat 'python Alphabet.py'
             }
@@ -15,7 +15,7 @@ pipeline{
         }
         stage('Deployment Stage'){
               steps{
-               echo 'successfully deployed'
+               bat 'python output.py'
             }
         }
     }
