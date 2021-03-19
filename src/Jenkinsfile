@@ -4,18 +4,18 @@ pipeline{
     stages{
         stage('Compilation stage'){
             steps{
-                bat 'python Alphabet.py'
+                bat 'python src/Alphabet.py'
             }
 
         }
         stage('Testing Stage'){
               steps{
-                bat 'python test_Alphabet.py'
+                bat 'python src/test_Alphabet.py'
             }
         }
         stage('Output Display'){
               steps{
-               bat 'python output.py'
+               bat 'python src/output.py'
             }
         }
     }
