@@ -1,16 +1,25 @@
+from flask import Flask, render_template, request
 import Alphabet
 
-
-# Method to print Output
-def run(sentence, character):
-    """this method imports the methods from the Alphabet file and prints the output for the input given in this
-    method"""
-    print(Alphabet.word_length(sentence))
-    print(Alphabet.matching_char(sentence, character))
-    print(Alphabet.palindrome_or_not(sentence))
-    print(Alphabet.reverse(sentence))
+app = Flask(__name__, template_folder='templates')
 
 
-a = "Welcome to TCS"
-b = "T"
-run(a, b)
+@app.route('/')
+def home_page():
+    return render_template('home.html')
+
+
+@app.route('/calc', methods=['POST'])
+def run_code():
+    string = request.form['string']
+    char = request.form['character']
+    leng = Alphabet.word_length(string)
+    matching = Alphabet.matching_char(string, char)
+    palin = Alphabet.palindrome_or_not(string)
+    rever = Alphabet.reverse(string)
+    return render_template('pass.html', l=leng, m=matching, p=palin, r=rever)
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
