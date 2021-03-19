@@ -11,8 +11,6 @@ def word_length(sentence):
 # Matching Characters in the String
 def matching_char(sentence, word):
     """this method is used to find the matching characters in a string and its case sensitive"""
-    sentence = sentence
-    word = word
     i = 0
     for char in sentence:
         if char == word:
@@ -24,7 +22,6 @@ def matching_char(sentence, word):
 def reverse(sentence):
     """this method is used to produce the reverse of the given string and no changes to spaces or Case of a
     character"""
-    sentence = sentence
     return 'The reverse of String: ' + sentence[::-1]
 
 
